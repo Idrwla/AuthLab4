@@ -2,9 +2,9 @@
   <mat-toolbar color="primary" class="navbar">
     <div>Authentication</div>
     <div >
-      <span>Sing In</span>
-      <span>Sign Up</span>
-      <span>Details</span>
+      <span mat-ripple (click)="singInView()" *ngIf="currentUser==null">Sing In</span>
+      <span mat-ripple (click)="singUpView()" *ngIf="currentUser==null">Sign Up</span>
+      <span mat-ripple (click)="detail()">Details</span>
     </div>
   </mat-toolbar>
 </div>
@@ -12,6 +12,6 @@
 
 </div>
 
-
-<app-sing-up></app-sing-up>
-<app-sing-in></app-sing-in>
+<app-user-details *ngIf="detailsComponent" [currentUser]="currentUser"></app-user-details>
+<app-sing-up *ngIf="singUpComponent" (event)="singed($event)"></app-sing-up>
+<app-sing-in *ngIf="singInComponent" (event)="singed($event)"></app-sing-in>

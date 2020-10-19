@@ -11,12 +11,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SingInComponent } from './sing-in/sing-in.component';
+import {MatRippleModule} from '@angular/material/core';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingUpComponent,
-    SingInComponent
+    SingInComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,9 @@ import { SingInComponent } from './sing-in/sing-in.component';
     MatToolbarModule,
     MatButtonModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRippleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
