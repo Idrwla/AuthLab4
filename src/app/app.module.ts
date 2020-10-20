@@ -14,26 +14,32 @@ import { SingInComponent } from './sing-in/sing-in.component';
 import {MatRippleModule} from '@angular/material/core';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import {MatCardModule} from '@angular/material/card';
+import {ReactiveFormsModule} from '@angular/forms';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingUpComponent,
     SingInComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatRippleModule,
-    MatCardModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatRippleModule,
+        MatCardModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

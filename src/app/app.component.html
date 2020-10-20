@@ -4,7 +4,9 @@
     <div >
       <span mat-ripple (click)="singInView()" *ngIf="currentUser==null">Sing In</span>
       <span mat-ripple (click)="singUpView()" *ngIf="currentUser==null">Sign Up</span>
+      <span mat-ripple (click)="forgotPass()" *ngIf="currentUser==null">Forgot Password</span>
       <span mat-ripple (click)="detail()">Details</span>
+      <span mat-ripple (click)="LogOut()">Log out</span>
     </div>
   </mat-toolbar>
 </div>
@@ -15,3 +17,5 @@
 <app-user-details *ngIf="detailsComponent" [currentUser]="currentUser"></app-user-details>
 <app-sing-up *ngIf="singUpComponent" (event)="singed($event)"></app-sing-up>
 <app-sing-in *ngIf="singInComponent" (event)="singed($event)"></app-sing-in>
+<app-forgot-password *ngIf="forgotPassComponent" (event)="singed($event)"></app-forgot-password>
+<app-change-password [currentUser]="currentUser" *ngIf="timeToChangePass" (event)="singed($event)" ></app-change-password>
