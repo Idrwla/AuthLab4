@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="sing-up.component.css">
+<div class="singUp">
+  <mat-form-field>
+    <mat-label>User name</mat-label>
+    <input matInput [formControl]="userName" required>
+    <mat-error *ngIf="userName.invalid">{{getUserName()}}</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input matInput [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getEMail()}}</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input (input)="getPassword($event)" type="password" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Confirm password</mat-label>
+    <input (input)="getCongPassword($event)" type="password" matInput>
+  </mat-form-field>
+  <br>
+  <mat-checkbox (change)="agreedWithPrivacyTerm($event)" >I agree with the privacy terms</mat-checkbox>
+  <br>
+  <p *ngIf="message!=null" style="color: red">{{message}}</p>
+  <button mat-raised-button (click)="singUp()" color="primary" [disabled]="!canSubmit">Sing Up</button>
+
+</div>

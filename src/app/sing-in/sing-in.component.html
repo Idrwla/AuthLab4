@@ -1,0 +1,16 @@
+<div class="singIn">
+  <mat-form-field>
+    <mat-label>User name</mat-label>
+    <input [formControl]="username" matInput required>
+    <mat-error *ngIf="username.invalid">{{getUserName()}}</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [formControl]="passWord" type="password" required>
+    <mat-error *ngIf="passWord.invalid">{{getPassword()}}</mat-error>
+  </mat-form-field>
+  <br>
+  <p *ngIf="message!=null">{{message}}</p>
+  <button mat-raised-button (click)="singIn()" color="primary">Sing Up</button>
+</div>
