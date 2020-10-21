@@ -29,14 +29,14 @@ export class SingInComponent {
   }
   singIn(): void{
       for (const item of this.listOfUsers) {
-        if ((item.getUsername() === this.username.value) && (this.attempts === 3) && (item.isBlocked !== true)){
+        if ((item.getUsername() === this.username.value) && (this.attempts === 3)){
           item.isBlocked = true;
           this.attempts = 0;
           this.message = 'У вас было слишком много безуспешных попыток, в целях безопасности мы заблокировали ваш аккаунт. Вы можете разблокировать ваш пароль.';
           break;
         }
         if ( (item.getUsername() === this.username.value) &&
-          (item.getPassword() === this.passWord.value)
+          (item.getPassword() === this.passWord.value) && (item.isBlocked !== true)
         ){
           this.currentUser = item;
           console.log('success');
