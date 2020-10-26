@@ -52,7 +52,7 @@ export class SingUpComponent {
   }
   singUp(): void{
     if ((this.agreed === true) && (this.userName.value !== '') && (this.email.value !== '') && (this.password !== '')){
-        this.currentUser = new User(this.userName.value , this.email.value , this.password);
+        this.currentUser = new User(this.userName.value , this.password, this.email.value );
         this.listOfUsers.push(this.currentUser);
         this.event.emit(this.currentUser);
         console.log('Success');

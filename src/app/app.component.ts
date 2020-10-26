@@ -19,24 +19,32 @@ export class AppComponent {
     this.singInComponent = true;
     this.singUpComponent = false;
     this.detailsComponent = false;
+    this.timeToChangePass = false;
   }
   singUpView(): void{
     this.singUpComponent = true;
     this.singInComponent = false;
     this.detailsComponent = false;
+    this.timeToChangePass = false;
   }
   detail(): void{
     if (this.currentUser != null){
       this.detailsComponent = true;
       this.singUpComponent = false;
       this.singInComponent = false;
+      this.timeToChangePass = false;
     }
   }
   toChangePass(): void{
-    setTimeout(() => {
-      this.timeToChangePass = true;
-      this.detailsComponent = false;
-    }, 20000);
+    if (this.currentUser !== null){
+      setTimeout(() => {
+        this.timeToChangePass = true;
+        this.detailsComponent = false;
+        this.singUpComponent = false;
+        this.singInComponent = false;
+        this.forgotPassComponent = false;
+      }, 20000);
+    }
   }
   singed(event): void{
     this.currentUser = event;
@@ -45,20 +53,23 @@ export class AppComponent {
     this.singUpComponent = false;
     this.singInComponent = false;
     this.forgotPassComponent = false;
+    this.timeToChangePass = false;
     this.toChangePass();
   }
   LogOut(): void{
+    this.currentUser = undefined;
     this.singInComponent = true;
     this.singUpComponent = false;
     this.forgotPassComponent = false;
     this.detailsComponent = false;
-    this.currentUser = null;
     this.accepted = false;
+    this.timeToChangePass = false;
   }
   forgotPass(): void{
     this.forgotPassComponent = true;
     this.singInComponent = false;
     this.singUpComponent = false;
     this.detailsComponent = false;
+    this.timeToChangePass = false;
   }
 }

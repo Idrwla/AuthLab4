@@ -29,21 +29,29 @@ export class SingInComponent {
   }
   singIn(): void{
       for (const item of this.listOfUsers) {
+        if (item.getUsername() !== this.username.value) {
+          continue;
+        }
         if ((item.getUsername() === this.username.value) && (this.attempts === 3)){
           item.isBlocked = true;
           this.attempts = 0;
-          this.message = 'У вас было слишком много безуспешных попыток, в целях безопасности мы заблокировали ваш аккаунт. Вы можете разблокировать ваш пароль.';
+          this.message = 'У вас было слишком много безуспешных попыток, в целях безопасности мы заблокировали ваш аккаунт. Вы можете разблокировать ваш пароль.' + this.username.value;
           break;
         }
-        if ( (item.getUsername() === this.username.value) &&
-          (item.getPassword() === this.passWord.value) && (item.isBlocked !== true)
+        if ((item.getUsername() === this.username.value) &&
+          (item.getPassword() === this.passWord.value)
         ){
-          this.currentUser = item;
-          console.log('success');
-          this.event.emit(this.currentUser);
-          break;
+          if (item.isBlocked === true){
+            this.message = 'Ваш аккаунт был заблокирован';
+          }else{
+            this.currentUser = item;
+            console.log('success');
+            this.event.emit(this.currentUser);
+            break;
+          }
         }else {
-          this.currentUser == null ? this.message = 'Incorrect username or password' : this.message = null;
+          this.currentUser == null ? this.message = 'Не правильное имя пользователя или пароль' : this.message = null;
+          break;
         }
       }
       this.attempts++;

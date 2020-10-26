@@ -2,7 +2,7 @@ export class User{
   private username: string;
   private password: string;
   private email: string;
-  isBlocked: boolean;
+  isBlocked = false;
   constructor(username, pass , email) {
       this.setUsername(username);
       this.setPassword(pass);
